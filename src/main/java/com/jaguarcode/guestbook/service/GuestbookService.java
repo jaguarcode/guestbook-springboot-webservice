@@ -7,11 +7,20 @@ import com.jaguarcode.guestbook.entity.Guestbook;
 
 public interface GuestbookService {
 
+    // Register
     Long register(GuestbookDTO dto);
 
+    // Get List
     PageResultDTO<GuestbookDTO, Guestbook> getList(PageRequestDTO requestDTO);
 
+    // Read
     GuestbookDTO read(Long gno);
+
+    // Remove
+    void remove(Long gno);
+
+    // Modify
+    void modify(GuestbookDTO dto);
 
     default Guestbook dtoToEntity(GuestbookDTO dto) {
         Guestbook entity = Guestbook.builder()
